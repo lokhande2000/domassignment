@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Events</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;   
+            box-sizing: border-box;         
+        }
+        body{
+            height: 100vh;
+            width: 100%;
+            /* padding: 30px; */
+        }
+        img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+  </head>
+  <body>
+    <img
+      src="https://miro.medium.com/max/1400/1*mdcu3Ku9r44HMtraHUqu5g.jpeg"
+      alt=""
+    />
+  </body>
+</html>
+<script>
+  // Write js here
+  let img = document.querySelector('img');
+
+  img.addEventListener("click", ()=>{
+        alert("The website you are going to visit may harm your computer, do you still want to redirect?")
+  })
+</script>
