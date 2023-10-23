@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+</head>
+<body>
+  <button onclick="clickme()">Show Quote in console</button>
+  <p id="quote">Talk is cheap Show me the code</p>
+</body>
+<script>
+
+  let para = document.getElementById("quote");
+
+    function clickme(){
+        let res = para.innerText;
+        console.log(res);
+    }
+</script>
+</html>
