@@ -1,0 +1,115 @@
+<!-- index.html file  -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI Calculator</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(244, 255, 244)
+        }
+        .container{
+            height: 60vh;
+            width: 40%;
+            display: flex;
+            flex-direction: column;
+            /* background-color: purple; */
+        }
+        h1{
+            font-size: 3rem;
+            font-weight: 900;
+            /* font-family: sans-serif; */
+        }
+        p{
+            font-size: 23px;
+            font-weight: 500;
+        }
+        input{
+            width: 40%;
+            border-radius: 5px;
+            font-size: 25px;
+            padding: 5px 12px;
+        }
+        button{
+            border-radius: 5px;
+            /* height: 30px; */
+            width: 27%;
+            font-size: 22px;
+            padding: 5px 5px;
+            background-color: rgba(128, 128, 128, 0.409);
+            margin-bottom: 30px;
+        }
+        #result{
+            font-size: 25px;
+        }
+
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Check your BMI</h1>
+
+      <!-- Option for providing height 
+            and weight to the user-->
+       <p>Enter your weight and height below to check your BMI results</p>
+      <p>Put your Weight in here (KG)</p>
+
+      <input type="text" id="weight" />
+
+      <p>Put your Height in here (CM)</p>
+
+      <input type="text" id="height" />
+
+      <button id="btn">Calculate BMI</button>
+      <div id="result"></div>
+    </div>
+
+    <script>
+      window.onload = () => {
+        let button = document.querySelector("#btn");
+
+        2
+        button.addEventListener("click", calculateBMI);
+      };
+
+      function calculateBMI() {
+      
+        let height = parseInt(document.querySelector("#height").value);
+
+        let weight = parseInt(document.querySelector("#weight").value);
+
+        let result = document.querySelector("#result");
+
+        
+        if (height === "" || isNaN(height))
+          result.innerHTML = "Provide a valid Height!";
+        else if (weight === "" || isNaN(weight))
+          result.innerHTML = "Provide a valid Weight!";
+        else {
+          
+          let bmi = (weight / ((height * height) / 10000)).toFixed(2);
+
+          
+          if (bmi <= 18.4) {
+            result.innerHTML = `Your BMI is <span>${bmi}</span> Which means You are Under Weight`;
+          } else if (bmi >= 18.5 && bmi < 24.9) {
+            result.innerHTML = `Your BMI is <span>${bmi}</span> Which means You are Normal Weight`;
+          } else if (bmi >= 25 && bmi <= 29.9) {
+            result.innerHTML = `Your BMI is <span>${bmi}</span> Which means You are Overweight`;
+          } else {
+            result.innerHTML = `Your BMI is <span>${bmi}</span> Which means You are Obese`;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
