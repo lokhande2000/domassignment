@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            width: 100%;
+            background-color: lightsalmon;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main{
+            height: 90vh;
+            width: 35%;
+            border: 2px solid red;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+
+        }
+        .info{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+        }
+        .min{
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+        }
+        .min > input{
+            height: 100px;
+            width: 140px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        h4{
+            font-size: 30px;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: #00AA01;
+        }
+        .score{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 10px 0;
+            gap: 10px;
+        }
+        #gray{
+            height: 100px;
+            width: 70%;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 600;
+            background-color: #B3B3B3;
+            text-align: center;
+        }
+        .container{
+            height: 40%;
+            width: 70%;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+            
+        }
+        #btn{
+            width: 70%;
+            margin: auto;
+            font-size: 25px;
+            font-weight: 600;
+            padding: 10px 12px;
+            margin-top: 10px;
+            border-radius: 5px;
+            background-color: #000;
+            color: #fff;
+        }
+        .container button{
+            font-size: 25px;
+            font-weight: 600;
+        }
+        .center{
+            /* height: ; */
+            width: 340%;
+            /* border: 1px solid red; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .center button{
+            height: 100%;
+            width: 29%;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="info">
+            <div class="min">
+                <input class="red" type="number" name="text">
+                <h4>MIN</h4>
+            </div>
+            <div class="min">
+                <input class="green" type="text" name="text">
+                <h4>MAX</h4>
+            </div>
+        </div>
+        <div class="score">
+            <h4>SCORE</h4>
+            <input id="gray" type="number" name="text" placeholder="#">
+        </div>
+
+        <div class="container">
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <div class="center">
+                <button class="block">0</button>
+            </div>
+        </div>
+        <button id="btn">ENTER</button>
+    </div>
+
+    <script>
+        let buttons = document.querySelectorAll('.container  button');
+        let min = document.querySelector(".red")
+        let max = document.querySelector(".green")
+        let enter = document.querySelector("#btn");
+        let input = document.querySelector("#gray");
+        let bag = "";
+
+        buttons.forEach((ele)=>{
+            ele.addEventListener("click",()=>{
+                bag += ele.innerHTML;
+                input.value = bag;
+                
+            })
+
+        }); 
+
+        enter.addEventListener("click",()=>{
+            if(input.value < min.value && input.value < max.value){
+                min.value = input.value
+            }else if(min.value < input.value && max.value < input.value){
+                max.value = input.value;
+            }
+        });
+        
+    </script>
+</body>
+</html>
